@@ -12,39 +12,176 @@
 
 // Calculating the sum of these hourly totals; your output for each location should look like this:
 
-var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+var hours = ['6am:', '7am:', '8am:', '9am:', '10am:', '11am:', '12pm:', '1pm:', '2pm:', '3pm:', '4pm:', '5pm:', '6pm:', '7pm:'];
+var seattleUl = document.getElementById('seattle');
+var tokyoUl = document.getElementById('tokyo');
+var dubaiUl = document.getElementById('dubai');
+var parisUl = document.getElementById('paris');
+var limaUl = document.getElementById('lima');
 
 var seattle = {
   minCust: 23,
   maxCust: 65,
-  rdmCust: [],
   avgCookies: 6.3,
-  cookiesPerHour: [],
-  getCustPerHour: function () {
+  cookiesPerHr: [],
+  dailySales: 0,
+  getRdmCust: function () {
+    return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
+  },
+  getCookiesPerhour: function () {
     for (var i = 0; i < hours.length; i++) {
-      var hoursAtI = ` cookies sold at ${[i]}`;
-      this.rdmCust = rdmNum(23, 65) ;
-      this.cookiesPerHour = [(this.avgCookies * this.rdmCust) + hoursAtI];
+      var hrlySales = Math.ceil(this.getRdmCust() * this.avgCookies);
+      this.cookiesPerHr.push(hrlySales);
+      this.dailySales += hrlySales;
     }
+  },
+  render: function () {
+    this.getCookiesPerhour();
+    for (var i = 0; i < hours.length; i++) {
+      var li = document.createElement('li');
+      li.textContent = `${hours[i]} ${this.cookiesPerHr[i]} cookies`;
+      seattleUl.appendChild(li);
+    }
+    var li = document.createElement('li');
+    li.textContent = `Total: ${this.dailySales} cookies`;
+    seattleUl.appendChild(li);
   }
-  // getCookiesPerhour: function () {
-  //   for (var i = 0; i < hours.length; i++)
-  //   this.cookiesPerHour = (this.avgCookies * this.rdmCust[i]);
-  // }
 };
 
-//seattle.getCookiesPerhour();
-seattle.getCustPerHour();
+var tokyo = {
+  minCust: 3,
+  maxCust: 24,
+  avgCookies: 1.2,
+  cookiesPerHr: [],
+  dailySales: 0,
+  getRdmCust: function () {
+    return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
+  },
+  getCookiesPerhour: function () {
+    for (var i = 0; i < hours.length; i++) {
+      var hrlySales = Math.ceil(this.getRdmCust() * this.avgCookies);
+      this.cookiesPerHr.push(hrlySales);
+      this.dailySales += hrlySales;
+    }
+  },
+  render: function () {
+    this.getCookiesPerhour();
+    for (var i = 0; i < hours.length; i++) {
+      var li = document.createElement('li');
+      li.textContent = `${hours[i]} ${this.cookiesPerHr[i]} cookies`;
+      tokyoUl.appendChild(li);
+    }
+    var li = document.createElement('li');
+    li.textContent = `Total: ${this.dailySales} cookies`;
+    tokyoUl.appendChild(li);
+  }
+};
 
-console.log(seattle.rdmCust);
-console.log(seattle.cookiesPerHour);
+var dubai = {
+  minCust: 11,
+  maxCust: 38,
+  avgCookies: 3.7,
+  cookiesPerHr: [],
+  dailySales: 0,
+  getRdmCust: function () {
+    return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
+  },
+  getCookiesPerhour: function () {
+    for (var i = 0; i < hours.length; i++) {
+      var hrlySales = Math.ceil(this.getRdmCust() * this.avgCookies);
+      this.cookiesPerHr.push(hrlySales);
+      this.dailySales += hrlySales;
+    }
+  },
+  render: function () {
+    this.getCookiesPerhour();
+    for (var i = 0; i < hours.length; i++) {
+      var li = document.createElement('li');
+      li.textContent = `${hours[i]} ${this.cookiesPerHr[i]} cookies`;
+      dubaiUl.appendChild(li);
+    }
+    var li = document.createElement('li');
+    li.textContent = `Total: ${this.dailySales} cookies`;
+    dubaiUl.appendChild(li);
+  }
+};
 
-function rdmNum(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
+var paris = {
+  minCust: 20,
+  maxCust: 38,
+  avgCookies: 2.3,
+  cookiesPerHr: [],
+  dailySales: 0,
+  getRdmCust: function () {
+    return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
+  },
+  getCookiesPerhour: function () {
+    for (var i = 0; i < hours.length; i++) {
+      var hrlySales = Math.ceil(this.getRdmCust() * this.avgCookies);
+      this.cookiesPerHr.push(hrlySales);
+      this.dailySales += hrlySales;
+    }
+  },
+  render: function () {
+    this.getCookiesPerhour();
+    for (var i = 0; i < hours.length; i++) {
+      var li = document.createElement('li');
+      li.textContent = `${hours[i]} ${this.cookiesPerHr[i]} cookies`;
+      parisUl.appendChild(li);
+    }
+    var li = document.createElement('li');
+    li.textContent = `Total: ${this.dailySales} cookies`;
+    parisUl.appendChild(li);
+  }
+};
+
+var lima = {
+  minCust: 2,
+  maxCust: 16,
+  avgCookies: 4.6,
+  cookiesPerHr: [],
+  dailySales: 0,
+  getRdmCust: function () {
+    return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
+  },
+  getCookiesPerhour: function () {
+    for (var i = 0; i < hours.length; i++) {
+      var hrlySales = Math.ceil(this.getRdmCust() * this.avgCookies);
+      this.cookiesPerHr.push(hrlySales);
+      this.dailySales += hrlySales;
+    }
+  },
+  render: function () {
+    this.getCookiesPerhour();
+    for (var i = 0; i < hours.length; i++) {
+      var li = document.createElement('li');
+      li.textContent = `${hours[i]} ${this.cookiesPerHr[i]} cookies`;
+      limaUl.appendChild(li);
+    }
+    var li = document.createElement('li');
+    li.textContent = `Total: ${this.dailySales} cookies`;
+    limaUl.appendChild(li);
+  }
+};
 
 
+seattle.getRdmCust();
+seattle.getCookiesPerhour();
+seattle.render();
 
-// //helper function for random number from MDN docs: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-// function getRandomIntInclusive(min, max) {
-//   return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
+tokyo.getRdmCust();
+tokyo.getCookiesPerhour();
+tokyo.render();
+
+dubai.getRdmCust();
+dubai.getCookiesPerhour();
+dubai.render();
+
+paris.getRdmCust();
+paris.getCookiesPerhour();
+paris.render();
+
+lima.getRdmCust();
+lima.getCookiesPerhour();
+lima.render();
+
