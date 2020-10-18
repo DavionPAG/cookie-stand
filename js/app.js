@@ -19,6 +19,29 @@ var dubaiUl = document.getElementById('dubai');
 var parisUl = document.getElementById('paris');
 var limaUl = document.getElementById('lima');
 
+var salesTable = document.getElementById('salesTable')
+
+function sales(minCust, maxCust, avgCookies, cookiesPerHr, dailySales){
+  this.minCust = minCust;
+  this.maxCust = maxCust;
+  this.avgCookies = avgCookies;
+  this.cookiesPerHr =cookiesPerHr;
+  this.dailySales = dailySales;
+  this.getRdmCust: function () {
+    return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
+  };
+  this.getCookiesPerhour: function () {
+    for (var i = 0; i < hours.length; i++) {
+      var hrlySales = Math.ceil(this.getRdmCust() * this.avgCookies);
+      this.cookiesPerHr.push(hrlySales);
+      this.dailySales += hrlySales;
+    }
+    this.render: function () {
+      
+    }
+}
+
+
 var seattle = {
   minCust: 23,
   maxCust: 65,
