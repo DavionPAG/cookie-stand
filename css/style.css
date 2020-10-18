@@ -1,0 +1,20 @@
+body {
+  background-color: salmon;
+}
+
+h1 {text-align: center;
+  
+}
+
+h2 {
+  text-align: center;
+}
+img {
+  height: 50;
+}
+
+ul {
+  display: inline-block;
+  padding: 4%;
+  margin: auto;
+}
