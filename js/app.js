@@ -12,12 +12,103 @@
 
 // Calculating the sum of these hourly totals; your output for each location should look like this:
 
-var hours = ['6am:', '7am:', '8am:', '9am:', '10am:', '11am:', '12pm:', '1pm:', '2pm:', '3pm:', '4pm:', '5pm:', '6pm:', '7pm:'];
+var hours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm'];
 var seattleUl = document.getElementById('seattle');
 var tokyoUl = document.getElementById('tokyo');
 var dubaiUl = document.getElementById('dubai');
 var parisUl = document.getElementById('paris');
 var limaUl = document.getElementById('lima');
+
+var salesTable = document.getElementById('salesTable');
+
+var tr = document.createElement('tr');
+salesTable.appendChild(tr);
+var th = document.createElement('th');
+th.textContent = '';
+tr.appendChild(th);
+for (var i = 0; i < hours.length; i++) {
+  var th = document.createElement('th');
+  th.textContent = (hours[i]);
+  tr.appendChild(th);
+}
+
+var th = document.createElement('th');
+th.textContent = 'Total';
+tr.appendChild(th);
+
+
+
+
+console.log(salesTable);
+
+function Sales(storeName, minCust, maxCust, avgCookies) {
+  this.storeName = storeName;
+  this.minCust = minCust;
+  this.maxCust = maxCust;
+  this.avgCookies = avgCookies;
+  this.cookiesPerHr = [];
+  this.dailySales = 0;
+  this.getRdmCust = function () {
+    return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
+  };
+  this.getCookiesPerhour = function () {
+    for (var i = 0; i < hours.length; i++) {
+      var hrlySales = Math.ceil(this.getRdmCust() * this.avgCookies);
+      this.cookiesPerHr.push(hrlySales);
+      this.dailySales += hrlySales;
+    }
+  };
+  this.render = function () {
+    var tr = document.createElement('tr');
+    var td = document.createElement('td');
+    td.textContent = this.storeName;
+    tr.appendChild(td);
+    for (var i = 0; i < hours.length; i++) {
+      var td = document.createElement('td');
+      td.textContent = this.cookiesPerHr[i];
+      tr.appendChild(td);
+      salesTable.appendChild(tr);
+    }
+
+    var td = document.createElement('td');
+    td.textContent = this.dailySales ;
+    tr.appendChild(td);
+  };
+}
+
+var tfoot = document.createElement('tfoot');
+var td = document.createElement(td);
+td.textContent = 'Total';
+tfoot.appendChild(td);
+salesTable.appendChild(tfoot);
+
+var seattleStore = new Sales('Seattle', 23, 65, 6.3);
+var toykoStore = new Sales('Tokyo', 23, 65, 6.3);
+var dubaiStore = new Sales('Duabi', 23, 65, 6.3);
+var parisStore = new Sales('Paris', 23, 65, 6.3);
+var limaStore = new Sales('Lima', 23, 65, 6.3);
+
+seattleStore.getRdmCust();
+seattleStore.getCookiesPerhour();
+seattleStore.render();
+
+toykoStore.getRdmCust();
+toykoStore.getCookiesPerhour();
+toykoStore.render();
+
+dubaiStore.getRdmCust();
+dubaiStore.getCookiesPerhour();
+dubaiStore.render();
+
+parisStore.getRdmCust();
+parisStore.getCookiesPerhour();
+parisStore.render();
+
+limaStore.getRdmCust();
+limaStore.getCookiesPerhour();
+limaStore.render();
+
+
 
 var seattle = {
   minCust: 23,
@@ -165,23 +256,22 @@ var lima = {
 };
 
 
-seattle.getRdmCust();
-seattle.getCookiesPerhour();
-seattle.render();
+// seattle.getRdmCust();
+// seattle.getCookiesPerhour();
+// seattle.render();
 
-tokyo.getRdmCust();
-tokyo.getCookiesPerhour();
-tokyo.render();
+// tokyo.getRdmCust();
+// tokyo.getCookiesPerhour();
+// tokyo.render();
 
-dubai.getRdmCust();
-dubai.getCookiesPerhour();
-dubai.render();
+// dubai.getRdmCust();
+// dubai.getCookiesPerhour();
+// dubai.render();
 
-paris.getRdmCust();
-paris.getCookiesPerhour();
-paris.render();
+// paris.getRdmCust();
+// paris.getCookiesPerhour();
+// paris.render();
 
-lima.getRdmCust();
-lima.getCookiesPerhour();
-lima.render();
-
+// lima.getRdmCust();
+// lima.getCookiesPerhour();
+// lima.render();
