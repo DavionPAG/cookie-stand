@@ -80,13 +80,16 @@ var tfoot = document.createElement('tfoot');
 var td = document.createElement(td);
 td.textContent = 'Total';
 tfoot.appendChild(td);
+// var td = document.createElement(td);
+// td.textContent = 0;
+// tfoot.appendChild(td);
 salesTable.appendChild(tfoot);
 
 var seattleStore = new Sales('Seattle', 23, 65, 6.3);
-var toykoStore = new Sales('Tokyo', 23, 65, 6.3);
-var dubaiStore = new Sales('Duabi', 23, 65, 6.3);
-var parisStore = new Sales('Paris', 23, 65, 6.3);
-var limaStore = new Sales('Lima', 23, 65, 6.3);
+var toykoStore = new Sales('Tokyo', 3, 24, 1.2);
+var dubaiStore = new Sales('Duabi', 11, 38, 3.7);
+var parisStore = new Sales('Paris', 20, 38, 2.3);
+var limaStore = new Sales('Lima', 2, 16, 4.6);
 
 seattleStore.getRdmCust();
 seattleStore.getCookiesPerhour();
