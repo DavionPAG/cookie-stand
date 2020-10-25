@@ -11,24 +11,43 @@
     <H1>Salmon Cookies</H1>
 
     <h2>
-    <a href="index.html">Home</a>
-  </h2>
+      <a href="index.html">Home</a>
+    </h2>
 
     <Main>
-      <!-- <ul id="seattle">Seattle</ul>
-      <ul id="tokyo">Tokyo</ul>
-      <ul id="dubai">Dubai</ul>
-      <ul id="paris">Paris</ul>
-      <ul id="lima">Lima</ul> -->
+
+      <form id="newStore">
+        <fieldset>
+          <Legend>New Store</Legend>
+        </fieldset>
+        <fieldset>
+          <label for="storeName">
+            Store Name:
+            <input type="text" name="storeName">
+          </label>
+          <label for="minCust">
+            Minimum Customers
+            <input type="text" name="minCust">
+          </label>
+          <label for="maxCust">
+            Maximum Customers
+            <input type="text" name="maxCust">
+          </label>
+          <label for="avgSales">
+            Average Daily Sales
+            <input type="text" name="avgSales">
+          </label>
+        </fieldset>
+      </form>
 
       <table id="salesTable">
       </table>
     </Main>
 
     <footer>
-      
+
     </footer>
-    
+
     <script src="js/app.js"></script>
 
   </body>

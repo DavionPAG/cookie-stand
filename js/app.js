@@ -4,6 +4,7 @@ var hours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:0
 
 var salesTable = document.getElementById('salesTable');
 var stores = [];
+var newStoreForm = document.getElementById('newStore');
 
 function renderHeader() {
   var tr = document.createElement('tr');
@@ -92,6 +93,15 @@ function endTotals() {
   tfoot.appendChild(td);
 }
 
+//Event
+
+function handleNewStore(event){
+  event.preventDefault();
+
+  var storeName = event.target.storeName.value;
+}
+
+newStoreForm.addEventListener('submit', handleNewStore);
 
 
 new Sales('Seattle', 23, 65, 6.3);
