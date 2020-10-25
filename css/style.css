@@ -9,7 +9,7 @@ color: salmon
 }
 
 h2 {
-  font-family: ;
+  font-family: 'Turret Road', cursive;
   text-align: center;
 }
 
@@ -37,19 +37,53 @@ table {
   border-color: salmon;
 }
 
+td:first-of-type {
+  text-align: left;
+}
+
 td:hover {
   background-color: salmon;
+}
+
+th:hover {
+ background-color: pink;
 }
 
 td {
   padding: 2px;
   border-style: inset;
   border-radius: 5px;
-  border: 5px,;
   border-color: pink;
   text-align: right;
-
 }
+
+th {
+  border-style: outset;
+  border-radius: 5px;
+  border-color: salmon;
+  text-align: left;
+}
+
+th{
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+tfoot td {
+  border-style: outset;
+  border-radius: 5px;
+  border-color: salmon;
+}
+
+tfoot td:hover {
+  background-color: pink;
+}
+
+tfoot td:first-of-type {
+  text-align: right;
+}
+
+
 
 form {
   text-align: center;

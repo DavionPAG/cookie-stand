@@ -10,7 +10,7 @@ function renderHeader() {
   var tr = document.createElement('tr');
   salesTable.appendChild(tr);
   var th = document.createElement('th');
-  th.textContent = '';
+  th.textContent = 'Locations';
   tr.appendChild(th);
   for (var i = 0; i < hours.length; i++) {
     th = document.createElement('th');
@@ -73,9 +73,9 @@ function renderStores() {
 function endTotals() {
 
   salesTable.appendChild(tfoot);
-  var thead = document.createElement('thead');
-  thead.textContent = 'Total';
-  tfoot.appendChild(thead);
+  var th = document.createElement('th');
+  th.textContent = 'Total';
+  tfoot.appendChild(th);
 
   var grandtotal = 0;
   for (var i = 0; i < hours.length; i++) {
@@ -99,6 +99,16 @@ function handleNewStore(event){
   event.preventDefault();
 
   var storeName = event.target.storeName.value;
+  console.log(storeName);
+  var minCust = event.target.minCust.value;
+  var maxCust = event.target.maxCust.value;
+  var avgSales = event.target.avgSales.value;
+  var newStore = new Sales(storeName, minCust, maxCust, avgSales);
+
+  tfoot.innerHTML = '';
+  newStore.render();
+  endTotals();
+  newStoreForm = document.getElementById('newStore').reset();
 }
 
 newStoreForm.addEventListener('submit', handleNewStore);

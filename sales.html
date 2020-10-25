@@ -3,6 +3,7 @@
 <head>
   <link rel="stylesheet" href="css/style.css">
   <title>Sales</title>
+  <link href="https://fonts.googleapis.com/css2?family=Turret+Road:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -21,23 +22,27 @@
           <Legend>New Store</Legend>
         </fieldset>
         <fieldset>
-          <label for="storeName">
+          <label>
             Store Name:
             <input type="text" name="storeName">
           </label>
-          <label for="minCust">
+          <label>
             Minimum Customers
-            <input type="text" name="minCust">
+            <input type="number" name="minCust">
           </label>
-          <label for="maxCust">
+          <label>
             Maximum Customers
-            <input type="text" name="maxCust">
+            <input type="number" name="maxCust">
           </label>
-          <label for="avgSales">
+          <label>
             Average Daily Sales
-            <input type="text" name="avgSales">
+            <input type="number" name="avgSales">
           </label>
         </fieldset>
+          <fieldset>
+          <button type="submit">Initialize</button>
+        </fieldset>
+        
       </form>
 
       <table id="salesTable">
