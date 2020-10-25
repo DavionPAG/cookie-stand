@@ -1,6 +1,5 @@
 body>img {
   height: 25%;
-
 }
 
 h1 {
@@ -8,32 +7,60 @@ h1 {
   text-align: center;
 color: salmon;
 padding-top: 50px;
+font-size: 50pt;
 }
 
 h2 {
   font-family: 'Turret Road', cursive;
   text-align: center;
   padding-top: 25px;
+  font-weight: bolder;
+  font-size: 25pt;
 }
 
-
-#locations img {
-  padding: 25px;
-  height: 10%;
-  float: left;
+#locations {
+  text-align: center;
+  margin-top: 20px;
 }
 
+#locations ul  {
+  display: inline;
 
+}
 
 p {
   padding: 25px;
+  font-weight: bolder;
+  font-size: 20pt;
 }
 
 div {
-  float: right;
+  margin: auto;
+  text-align: center;
 }
 
 #products, #family, #merch {
   text-align: center;
   padding-top: 10px;
+}
+
+ul {
+  list-style-type: circle;
+  list-style-position: inside;
+  margin-top: 5px;
+  text-align: left;
+}
+
+div#locations {
+  display: inline-block;
+  padding: 20px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+footer img {
+  height: 70px;
 }

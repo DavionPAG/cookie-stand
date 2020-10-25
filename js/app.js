@@ -22,7 +22,6 @@ function renderHeader() {
   tr.appendChild(th);
 }
 
-
 function Sales(storeName, minCust, maxCust, avgCookies) {
   this.storeName = storeName;
   this.minCust = minCust;
@@ -62,7 +61,6 @@ function Sales(storeName, minCust, maxCust, avgCookies) {
 }
 
 var tfoot = document.createElement('tfoot');
-
 
 function renderStores() {
   for (var i = 0; i < stores.length; i++) {
@@ -112,7 +110,6 @@ function handleNewStore(event){
 }
 
 newStoreForm.addEventListener('submit', handleNewStore);
-
 
 new Sales('Seattle', 23, 65, 6.3);
 new Sales('Tokyo', 3, 24, 1.2);
