@@ -4,12 +4,13 @@ var hours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:0
 
 var salesTable = document.getElementById('salesTable');
 var stores = [];
+var newStoreForm = document.getElementById('newStore');
 
 function renderHeader() {
   var tr = document.createElement('tr');
   salesTable.appendChild(tr);
   var th = document.createElement('th');
-  th.textContent = '';
+  th.textContent = 'Locations';
   tr.appendChild(th);
   for (var i = 0; i < hours.length; i++) {
     th = document.createElement('th');
@@ -72,9 +73,9 @@ function renderStores() {
 function endTotals() {
 
   salesTable.appendChild(tfoot);
-  var thead = document.createElement('thead');
-  thead.textContent = 'Total';
-  tfoot.appendChild(thead);
+  var th = document.createElement('th');
+  th.textContent = 'Total';
+  tfoot.appendChild(th);
 
   var grandtotal = 0;
   for (var i = 0; i < hours.length; i++) {
@@ -92,6 +93,25 @@ function endTotals() {
   tfoot.appendChild(td);
 }
 
+//Event
+
+function handleNewStore(event){
+  event.preventDefault();
+
+  var storeName = event.target.storeName.value;
+  console.log(storeName);
+  var minCust = event.target.minCust.value;
+  var maxCust = event.target.maxCust.value;
+  var avgSales = event.target.avgSales.value;
+  var newStore = new Sales(storeName, minCust, maxCust, avgSales);
+
+  tfoot.innerHTML = '';
+  newStore.render();
+  endTotals();
+  newStoreForm = document.getElementById('newStore').reset();
+}
+
+newStoreForm.addEventListener('submit', handleNewStore);
 
 
 new Sales('Seattle', 23, 65, 6.3);
