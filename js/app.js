@@ -97,7 +97,6 @@ function handleNewStore(event){
   event.preventDefault();
 
   var storeName = event.target.storeName.value;
-  console.log(storeName);
   var minCust = event.target.minCust.value;
   var maxCust = event.target.maxCust.value;
   var avgSales = event.target.avgSales.value;
