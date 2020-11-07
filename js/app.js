@@ -31,7 +31,7 @@ function Sales(storeName, minCust, maxCust, avgCookies) {
   this.dailySales = 0;
   stores.push(this);
   this.getRdmCust = function () {
-    return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
+    return Math.floor(Math.random() * parseInt((this.maxCust - this.minCust + 1) + this.minCust));
   };
   this.getCookiesPerhour = function () {
     for (var i = 0; i < hours.length; i++) {
@@ -93,7 +93,7 @@ function endTotals() {
 
 //Event
 
-function handleNewStore(event){
+function handleNewStore(event) {
   event.preventDefault();
 
   var storeName = event.target.storeName.value;
@@ -109,7 +109,6 @@ function handleNewStore(event){
 }
 
 newStoreForm.addEventListener('submit', handleNewStore);
-
 new Sales('Seattle', 23, 65, 6.3);
 new Sales('Tokyo', 3, 24, 1.2);
 new Sales('Duabi', 11, 38, 3.7);
